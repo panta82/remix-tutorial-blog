@@ -68,3 +68,18 @@ export async function getPost(slug: string): Promise<IPostWithContent> {
     content,
   };
 }
+
+export async function createPost(post: IPostWithContent) {
+  const fileContent = [
+    `---`,
+    `title: ${post.title}`,
+    `---`,
+    "",
+    post.content,
+  ].join("\n");
+  await libFs.writeFile(
+    libPath.join(POSTS_PATH, `${post.slug}.md`),
+    fileContent
+  );
+  return getPost(post.slug);
+}

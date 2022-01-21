@@ -1,0 +1,14 @@
+.Admin {
+  display: flex;
+}
+.Admin em {
+  color: red;
+}
+.Admin > nav {
+  padding-right: 2rem;
+}
+.Admin > main {
+  flex: 1;
+  border-left: 1px solid #ccc;
+  padding-left: 2rem;
+}
